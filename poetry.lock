@@ -1,0 +1,115 @@
+[[package]]
+name = "elementpath"
+version = "3.0.2"
+description = "XPath 1.0/2.0/3.0 parsers and selectors for ElementTree and lxml"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+dev = ["tox", "coverage", "lxml", "xmlschema (>=2.0.0)", "sphinx", "memory-profiler", "memray", "flake8", "mypy (==0.971)", "lxml-stubs"]
+
+[[package]]
+name = "lark-parser"
+version = "0.12.0"
+description = "a modern parsing library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+atomic_cache = ["atomicwrites"]
+nearley = ["js2py"]
+regex = ["regex"]
+
+[[package]]
+name = "lxml"
+version = "4.9.2"
+description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
+
+[package.extras]
+cssselect = ["cssselect (>=0.7)"]
+html5 = ["html5lib"]
+htmlsoup = ["beautifulsoup4"]
+source = ["Cython (>=0.29.7)"]
+
+[[package]]
+name = "mido"
+version = "1.2.10"
+description = "MIDI Objects for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["check-manifest (>=0.35)", "flake8 (>=3.4.1)", "pytest (>=3.2.2)", "sphinx (>=1.6.3)", "tox (>=2.8.2)"]
+ports = ["python-rtmidi (>=1.1.0)"]
+
+[[package]]
+name = "numpy"
+version = "1.21.1"
+description = "NumPy is the fundamental package for array computing with Python."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "partitura"
+version = "1.2.0"
+description = "A package for handling symbolic musical information"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+lark-parser = "*"
+lxml = "*"
+mido = "*"
+numpy = "*"
+scipy = "*"
+xmlschema = "*"
+
+[[package]]
+name = "scipy"
+version = "1.6.1"
+description = "SciPy: Scientific Library for Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+numpy = ">=1.16.5"
+
+[[package]]
+name = "xmlschema"
+version = "2.1.1"
+description = "An XML Schema validator and decoder"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+elementpath = ">=3.0.0,<4.0.0"
+
+[package.extras]
+codegen = ["elementpath (>=3.0.0,<4.0.0)", "jinja2"]
+dev = ["tox", "coverage", "lxml", "elementpath (>=3.0.0,<4.0.0)", "memory-profiler", "sphinx", "sphinx-rtd-theme", "jinja2", "flake8", "mypy", "lxml-stubs"]
+docs = ["elementpath (>=3.0.0,<4.0.0)", "sphinx", "sphinx-rtd-theme", "jinja2"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.7"
+content-hash = "857bf573d03fcf03029d26b1373da45a0dffb01a01d6bb2a330b65d06832df30"
+
+[metadata.files]
+elementpath = []
+lark-parser = []
+lxml = []
+mido = []
+numpy = []
+partitura = []
+scipy = []
+xmlschema = []
