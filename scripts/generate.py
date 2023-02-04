@@ -11,7 +11,18 @@ def list_scores(fp="scores"):
     result = {}
     for sf in files:
         score = pt.load_score(sf)
-        result[score.title] = sf
+        title = score.title
+        if not title:
+            print(f"{sf}: {score}")
+            continue
+
+        if title in result:
+            count = 2
+            while title in result:
+                title = score.title + f" ({count})"
+                count += 1
+
+        result[title] = sf
 
     return result
 
