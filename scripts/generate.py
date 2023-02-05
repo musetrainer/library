@@ -56,6 +56,9 @@ def generate_index(scores):
           {LI_LIST}
         </ol>
       </p>
+      <p>
+        <a href="https://github.com/orgs/musetrainer/discussions/new?category=scores">Request new scores</a>
+      </p>
     </div>
     <div class="footer">
       <div>
