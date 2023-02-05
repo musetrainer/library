@@ -6,7 +6,6 @@ authors = []
 
 [tool.poetry.dependencies]
 python = "^3.7"
-partitura = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 

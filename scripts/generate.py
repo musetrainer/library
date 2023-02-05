@@ -1,7 +1,7 @@
 from os import listdir
 from os.path import isfile, join
 from urllib.parse import quote
-import partitura as pt
+from parser import MusicXMLDocument
 
 
 def list_scores(fp="scores"):
@@ -10,16 +10,24 @@ def list_scores(fp="scores"):
     ]
     result = {}
     for sf in files:
-        score = pt.load_score(sf)
-        title = score.title
-        if not title:
-            print(f"{sf}: {score}")
-            continue
+        doc = MusicXMLDocument(sf)
+        work_text = sf.split("/")[1].replace("_", " ").replace(".mxl", "")
 
+        work = doc._score.find("work")
+        if work is not None:
+            work_title = work.find("work-title")
+            if work_title is not None:
+                work_text = work_title.text
+        else:
+            movement = doc._score.find("movement-title")
+            if movement is not None:
+                work_text = movement.text
+
+        title = work_text
         if title in result:
             count = 2
             while title in result:
-                title = score.title + f" ({count})"
+                title = work_text + f" ({count})"
                 count += 1
 
         result[title] = sf
@@ -68,8 +76,9 @@ def generate_index(scores):
         url = quote(link.encode("utf-8"))
         li_list += f"""
             <li>
-                {title}:
-                <a href="https://app.musetrainer.com/#/play?file={url}">Play Online</a>
+                {title}
+                &middot;
+                <a href="https://app.musetrainer.com/#/play?file={url}">Play</a>
                 &middot;
                 <a href="{link}">Download</a>
             </li>
