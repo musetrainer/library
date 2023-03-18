@@ -91,7 +91,32 @@ def generate_index(scores):
 
 
 def generate_readme(scores):
-    pass
+    readme = """
+# MuseTrainer public domain MusicXML library
+
+
+https://musetrainer.com/library
+
+
+## Generate
+
+```sh
+poetry install
+poetry run python scripts/generate.py
+```
+
+## List
+
+"""
+    titles = sorted(scores.keys())
+    li_list = ""
+    for title in titles:
+        link = f"https://musetrainer.com/library/{scores[title]}"
+        url = quote(link.encode("utf-8"))
+        li_list += f"""
+- {title} &middot; [Play](https://app.musetrainer.com/#/play?file={url}) &middot; [Download]({link})"""
+    with open("README.md", "w") as f:
+        f.write(readme + li_list)
 
 
 def generate():
