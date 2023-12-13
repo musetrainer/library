@@ -42,7 +42,7 @@ def generate_index(scores):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://help.musetrainer.com/dist/output.css" rel="stylesheet">
+  <link href="https://musetrainer.github.io/help/dist/output.css" rel="stylesheet">
   <title>MuseTrainer - Library</title>
   <meta name="description" content="Public Domain MusicXML files">
 </head>
@@ -62,10 +62,10 @@ def generate_index(scores):
     </div>
     <div class="footer">
       <div>
-        <a href="https://help.musetrainer.com/legal.html">Legal</a> &middot; <a href="https://help.musetrainer.com/privacy.html">Privacy</a> &middot; <a href="https://help.musetrainer.com/support.html">Support</a>
+        <a href="/help/legal.html">Legal</a> &middot; <a href="/help/privacy.html">Privacy</a> &middot; <a href="/help/support.html">Support</a>
       </div>
       <div>
-        &copy; <a href="https://musetrainer.com">MuseTrainer</a>
+        &copy; <a href="/">MuseTrainer</a>
       </div>
     </div>
   </div>
@@ -75,13 +75,13 @@ def generate_index(scores):
     titles = sorted(scores.keys())
     li_list = ""
     for title in titles:
-        link = f"https://lib.musetrainer.com/{scores[title]}"
+        link = f"https://musetrainer.github.io/library/{scores[title]}"
         url = quote(link.encode("utf-8"))
         li_list += f"""
             <li>
                 {title}
                 &middot;
-                <a href="https://musetrainer.com/#/play?file={url}">Play</a>
+                <a href="https://musetrainer.github.io/#/play?file={url}">Play</a>
                 &middot;
                 <a href="{link}">Download</a>
             </li>
@@ -95,7 +95,7 @@ def generate_readme(scores):
 # MuseTrainer public domain MusicXML library
 
 
-https://lib.musetrainer.com
+https://musetrainer.github.io/library
 
 
 ## Generate
@@ -111,10 +111,10 @@ poetry run python scripts/generate.py
     titles = sorted(scores.keys())
     li_list = ""
     for title in titles:
-        link = f"https://lib.musetrainer.com/{scores[title]}"
+        link = f"https://musetrainer.github.io/library/{scores[title]}"
         url = quote(link.encode("utf-8"))
         li_list += f"""
-- {title} &middot; [Play](https://musetrainer.com/#/play?file={url}) &middot; [Download]({link})"""
+- {title} &middot; [Play](https://musetrainer.github.io/#/play?file={url}) &middot; [Download]({link})"""
     with open("README.md", "w") as f:
         f.write(readme + li_list)
 
